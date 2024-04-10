@@ -67,6 +67,15 @@ debian_patches += \
 	libstdc++-hurd \
 	pr107475 \
 	pr93371 \
+	libsanitizer-timebits \
+	asan-allocator-base \
+	gcc-vhdl \
+	pr114533 \
+
+# with glibc (>= 2.31)
+ifeq (,$(filter $(distrelease),wheezy jessie stretch buster precise xenial bionic))
+  debian_patches += libsanitizer-no-crypt
+endif
 
 ifneq (,$(filter $(distrelease),precise xenial bionic focal groovy hirsute))
   debian_patches += pr100067-revert
@@ -77,6 +86,11 @@ ifneq (,$(filter $(distrelease), jessie stretch buster bullseye precise trusty x
   ifneq ($(GFDL_INVARIANT_FREE),yes)
     debian_patches += dwarf5-revert-default-doc
   endif
+endif
+
+ifeq (,$(filter $(distrelease),$(no_timet64_distreleases)))
+  debian_patches += pr99832-distro
+  debian_patches += pr114065-proposed
 endif
 
 # TODO:
@@ -330,11 +344,15 @@ ifeq ($(with_ssp)-$(with_ssp_default),yes-yes)
 endif
 ifneq (,$(filter $(derivative),Ubuntu))
   ifneq (,$(filter $(distrelease),lucid precise trusty xenial bionic focal jammy kinetic lunar mantic))
-	echo '#define DIST_DEFAULT_FORTIFY_SOURCE 2' \
-	     >> $(srcdir)/gcc/distro-defaults.h
+	( \
+	  echo '#define DIST_DEFAULT_FORTIFY_SOURCE 2'; \
+	  echo '#define DIST_DEFAULT_FORTIFY_SOURCE_S "2"' \
+	) >> $(srcdir)/gcc/distro-defaults.h
   else
-	echo '#define DIST_DEFAULT_FORTIFY_SOURCE 3' \
-	     >> $(srcdir)/gcc/distro-defaults.h
+	( \
+	  echo '#define DIST_DEFAULT_FORTIFY_SOURCE 3'; \
+	  echo '#define DIST_DEFAULT_FORTIFY_SOURCE_S "3"' \
+	) >> $(srcdir)/gcc/distro-defaults.h
   endif
 	echo '#define DIST_DEFAULT_RELRO 1' \
 	     >> $(srcdir)/gcc/distro-defaults.h
@@ -356,6 +374,10 @@ ifneq (,$(filter $(derivative),Ubuntu))
 else ifneq (,$(filter $(derivative),Debian))
   ifneq (,$(findstring gcc-12, $(PKGSOURCE)))
   endif
+endif
+ifeq ($(with_timet64),yes)
+	echo '#define DIST_DEFAULT_TIMET64 1' \
+	     >> $(srcdir)/gcc/distro-defaults.h
 endif
 	  echo '#endif' \
 	     >> $(srcdir)/gcc/distro-defaults.h

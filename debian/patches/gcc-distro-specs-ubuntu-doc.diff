@@ -2,7 +2,7 @@
 
 --- a/src/gcc/doc/invoke.texi
 +++ b/src/gcc/doc/invoke.texi
-@@ -9952,6 +9952,13 @@ also turns on the following optimization
+@@ -10894,6 +10894,13 @@ also turns on the following optimization
  Please note the warning under @option{-fgcse} about
  invoking @option{-O2} on programs that use computed gotos.
  
@@ -16,7 +16,7 @@
  @item -O3
  @opindex O3
  Optimize yet more.  @option{-O3} turns on all optimizations specified
-@@ -12692,6 +12698,11 @@ instructions.
+@@ -13709,6 +13716,11 @@ instructions.
  Optimize the prologue of variadic argument functions with respect to usage of
  those arguments.
  
@@ -28,9 +28,9 @@
  @item -fsection-anchors
  @opindex fsection-anchors
  Try to reduce the number of symbolic address calculations by using
-@@ -13378,6 +13389,9 @@ value of a shared integer constant.
+@@ -14427,6 +14439,9 @@ value of a shared integer constant.
  The minimum size of buffers (i.e.@: arrays) that receive stack smashing
- protection when @option{-fstack-protection} is used.
+ protection when @option{-fstack-protector} is used.
  
 +This default before Ubuntu 10.10 was "8". Currently it is "4", to increase
 +the number of functions protected by the stack protector.
@@ -38,9 +38,9 @@
  @item min-size-for-stack-sharing
  The minimum size of variables taking part in stack slot sharing when not
  optimizing.
-@@ -14659,6 +14673,10 @@ which functions and calls should be skip
- Currently the x86 GNU/Linux target provides an implementation based
- on Intel Control-flow Enforcement Technology (CET).
+@@ -16082,6 +16097,10 @@ condition, and to call @code{__builtin_t
+ unexpected.  Use with @samp{-fharden-compares} to cover all
+ conditionals.
  
 +NOTE: In Ubuntu 19.10 and later versions, @option{-fcf-protection}
 +is enabled by default for C, C++, ObjC, ObjC++, if none of
@@ -49,7 +49,7 @@
  @item -fstack-protector
  @opindex fstack-protector
  Emit extra code to check for buffer overflows, such as stack smashing
-@@ -14746,6 +14764,10 @@ allocations.  @option{-fstack-clash-prot
+@@ -16169,6 +16188,10 @@ allocations.  @option{-fstack-clash-prot
  protection for static stack allocations if the target supports
  @option{-fstack-check=specific}.
  
@@ -60,7 +60,7 @@
  @item -fstack-limit-register=@var{reg}
  @itemx -fstack-limit-symbol=@var{sym}
  @itemx -fno-stack-limit
-@@ -15443,6 +15465,9 @@ For example, @option{-Wl,-Map,output.map
+@@ -16870,6 +16893,9 @@ For example, @option{-Wl,-Map,output.map
  linker.  When using the GNU linker, you can also get the same effect with
  @option{-Wl,-Map=output.map}.
  

@@ -1,10 +1,26 @@
-# DP: updates from the 12 branch upto 20240119 (documentation).
+# DP: updates from the 12 branch upto 20240403 (documentation).
 
 LANG=C git diff --no-renames --src-prefix=a/src/ --dst-prefix=b/src/ \
-	8fc1a49c9312b05d925b7d21f1d2145d70818151 a7f6fe38d5421e5426da2b3ec34278b9e4146eb2 \
+	8fc1a49c9312b05d925b7d21f1d2145d70818151 a336f1959ae0b699a818b55395e21b88a637ab6f \
 	| awk '/^diff .*\.texi/ {skip=0; print; next} /^diff / {skip=1; next} skip==0' \
         | grep -v -E '^(diff|index)'
 
+--- a/src/gcc/doc/avr-mmcu.texi
++++ b/src/gcc/doc/avr-mmcu.texi
+@@ -34,11 +34,11 @@
+ 
+ @item avr4
+ ``Enhanced'' devices with up to 8@tie{}KiB of program memory.
+-@*@var{mcu}@tie{}= @code{atmega48}, @code{atmega48a}, @code{atmega48p}, @code{atmega48pa}, @code{atmega48pb}, @code{atmega8}, @code{atmega8a}, @code{atmega8hva}, @code{atmega88}, @code{atmega88a}, @code{atmega88p}, @code{atmega88pa}, @code{atmega88pb}, @code{atmega8515}, @code{atmega8535}, @code{ata6285}, @code{ata6286}, @code{ata6289}, @code{ata6612c}, @code{at90pwm1}, @code{at90pwm2}, @code{at90pwm2b}, @code{at90pwm3}, @code{at90pwm3b}, @code{at90pwm81}.
++@*@var{mcu}@tie{}= @code{atmega48}, @code{atmega48a}, @code{atmega48p}, @code{atmega48pa}, @code{atmega48pb}, @code{atmega8}, @code{atmega8a}, @code{atmega8hva}, @code{atmega88}, @code{atmega88a}, @code{atmega88p}, @code{atmega88pa}, @code{atmega88pb}, @code{atmega8515}, @code{atmega8535}, @code{ata5795}, @code{ata6285}, @code{ata6286}, @code{ata6289}, @code{ata6612c}, @code{at90pwm1}, @code{at90pwm2}, @code{at90pwm2b}, @code{at90pwm3}, @code{at90pwm3b}, @code{at90pwm81}.
+ 
+ @item avr5
+ ``Enhanced'' devices with 16@tie{}KiB up to 64@tie{}KiB of program memory.
+-@*@var{mcu}@tie{}= @code{atmega16}, @code{atmega16a}, @code{atmega16hva}, @code{atmega16hva2}, @code{atmega16hvb}, @code{atmega16hvbrevb}, @code{atmega16m1}, @code{atmega16u4}, @code{atmega161}, @code{atmega162}, @code{atmega163}, @code{atmega164a}, @code{atmega164p}, @code{atmega164pa}, @code{atmega165}, @code{atmega165a}, @code{atmega165p}, @code{atmega165pa}, @code{atmega168}, @code{atmega168a}, @code{atmega168p}, @code{atmega168pa}, @code{atmega168pb}, @code{atmega169}, @code{atmega169a}, @code{atmega169p}, @code{atmega169pa}, @code{atmega32}, @code{atmega32a}, @code{atmega32c1}, @code{atmega32hvb}, @code{atmega32hvbrevb}, @code{atmega32m1}, @code{atmega32u4}, @code{atmega32u6}, @code{atmega323}, @code{atmega324a}, @code{atmega324p}, @code{atmega324pa}, @code{atmega324pb}, @code{atmega325}, @code{atmega325a}, @code{atmega325p}, @code{atmega325pa}, @code{atmega328}, @code{atmega328p}, @code{atmega328pb}, @code{atmega329}, @code{atmega329a}, @code{atmega329p}, @code{atmega329pa}, @code{atmega3250}, @code{atmega3250a}, @code{atmega3250p}, @code{atmega3250pa}, @code{atmega3290}, @code{atmega3290a}, @code{atmega3290p}, @code{atmega3290pa}, @code{atmega406}, @code{atmega64}, @code{atmega64a}, @code{atmega64c1}, @code{atmega64hve}, @code{atmega64hve2}, @code{atmega64m1}, @code{atmega64rfr2}, @code{atmega640}, @code{atmega644}, @code{atmega644a}, @code{atmega644p}, @code{atmega644pa}, @code{atmega644rfr2}, @code{atmega645}, @code{atmega645a}, @code{atmega645p}, @code{atmega649}, @code{atmega649a}, @code{atmega649p}, @code{atmega6450}, @code{atmega6450a}, @code{atmega6450p}, @code{atmega6490}, @code{atmega6490a}, @code{atmega6490p}, @code{ata5795}, @code{ata5790}, @code{ata5790n}, @code{ata5791}, @code{ata6613c}, @code{ata6614q}, @code{ata5782}, @code{ata5831}, @code{ata8210}, @code{ata8510}, @code{ata5702m322}, @code{at90pwm161}, @code{at90pwm216}, @code{at90pwm316}, @code{at90can32}, @code{at90can64}, @code{at90scr100}, @code{at90usb646}, @code{at90usb647}, @code{at94k}, @code{m3000}.
++@*@var{mcu}@tie{}= @code{atmega16}, @code{atmega16a}, @code{atmega16hva}, @code{atmega16hva2}, @code{atmega16hvb}, @code{atmega16hvbrevb}, @code{atmega16m1}, @code{atmega16u4}, @code{atmega161}, @code{atmega162}, @code{atmega163}, @code{atmega164a}, @code{atmega164p}, @code{atmega164pa}, @code{atmega165}, @code{atmega165a}, @code{atmega165p}, @code{atmega165pa}, @code{atmega168}, @code{atmega168a}, @code{atmega168p}, @code{atmega168pa}, @code{atmega168pb}, @code{atmega169}, @code{atmega169a}, @code{atmega169p}, @code{atmega169pa}, @code{atmega32}, @code{atmega32a}, @code{atmega32c1}, @code{atmega32hvb}, @code{atmega32hvbrevb}, @code{atmega32m1}, @code{atmega32u4}, @code{atmega32u6}, @code{atmega323}, @code{atmega324a}, @code{atmega324p}, @code{atmega324pa}, @code{atmega324pb}, @code{atmega325}, @code{atmega325a}, @code{atmega325p}, @code{atmega325pa}, @code{atmega328}, @code{atmega328p}, @code{atmega328pb}, @code{atmega329}, @code{atmega329a}, @code{atmega329p}, @code{atmega329pa}, @code{atmega3250}, @code{atmega3250a}, @code{atmega3250p}, @code{atmega3250pa}, @code{atmega3290}, @code{atmega3290a}, @code{atmega3290p}, @code{atmega3290pa}, @code{atmega406}, @code{atmega64}, @code{atmega64a}, @code{atmega64c1}, @code{atmega64hve}, @code{atmega64hve2}, @code{atmega64m1}, @code{atmega64rfr2}, @code{atmega640}, @code{atmega644}, @code{atmega644a}, @code{atmega644p}, @code{atmega644pa}, @code{atmega644rfr2}, @code{atmega645}, @code{atmega645a}, @code{atmega645p}, @code{atmega649}, @code{atmega649a}, @code{atmega649p}, @code{atmega6450}, @code{atmega6450a}, @code{atmega6450p}, @code{atmega6490}, @code{atmega6490a}, @code{atmega6490p}, @code{ata5790}, @code{ata5790n}, @code{ata5791}, @code{ata6613c}, @code{ata6614q}, @code{ata5782}, @code{ata5831}, @code{ata8210}, @code{ata8510}, @code{ata5702m322}, @code{at90pwm161}, @code{at90pwm216}, @code{at90pwm316}, @code{at90can32}, @code{at90can64}, @code{at90scr100}, @code{at90usb646}, @code{at90usb647}, @code{at94k}, @code{m3000}.
+ 
+ @item avr51
+ ``Enhanced'' devices with 128@tie{}KiB of program memory.
 --- a/src/gcc/doc/extend.texi
 +++ b/src/gcc/doc/extend.texi
 @@ -14618,6 +14618,7 @@ instructions, but allow the compiler to schedule those calls.
@@ -169,6 +185,15 @@ LANG=C git diff --no-renames --src-prefix=a/src/ --dst-prefix=b/src/ \
  Several support libraries are necessary to build GCC, some are required,
 --- a/src/gcc/doc/invoke.texi
 +++ b/src/gcc/doc/invoke.texi
+@@ -1004,7 +1004,7 @@ Objective-C and Objective-C++ Dialects}.
+ -mcond-move-float  -mno-cond-move-float @gol
+ -memcpy  -mno-memcpy -mstrict-align -mno-strict-align @gol
+ -mmax-inline-memcpy-size=@var{n} @gol
+--mcmodel=@var{code-model}}
++-mcmodel=@var{code-model} -mrelax -mpass-mrelax-to-as}
+ 
+ @emph{M32R/D Options}
+ @gccoptlist{-m32r2  -m32rx  -m32r @gol
 @@ -1434,7 +1434,7 @@ See RS/6000 and PowerPC Options.
  -m96bit-long-double  -mlong-double-64  -mlong-double-80  -mlong-double-128 @gol
  -mregparm=@var{num}  -msseregparm @gol
@@ -178,7 +203,24 @@ LANG=C git diff --no-renames --src-prefix=a/src/ --dst-prefix=b/src/ \
  -momit-leaf-frame-pointer  -mno-red-zone  -mno-tls-direct-seg-refs @gol
  -mcmodel=@var{code-model}  -mabi=@var{name}  -maddress-mode=@var{mode} @gol
  -m32  -m64  -mx32  -m16  -miamcu  -mlarge-data-threshold=@var{num} @gol
-@@ -6647,7 +6647,7 @@ This warning is enabled by @option{-Wall}.
+@@ -4521,10 +4521,12 @@ and Objective-C++ programs:
+ Use @var{class-name} as the name of the class to instantiate for each
+ literal string specified with the syntax @code{@@"@dots{}"}.  The default
+ class name is @code{NXConstantString} if the GNU runtime is being used, and
+-@code{NSConstantString} if the NeXT runtime is being used (see below).  The
+-@option{-fconstant-cfstrings} option, if also present, overrides the
+-@option{-fconstant-string-class} setting and cause @code{@@"@dots{}"} literals
+-to be laid out as constant CoreFoundation strings.
++@code{NSConstantString} if the NeXT runtime is being used (see below).  On
++Darwin (macOS, MacOS X) platforms, the @option{-fconstant-cfstrings} option, if
++also present, overrides the @option{-fconstant-string-class} setting and cause
++@code{@@"@dots{}"} literals to be laid out as constant CoreFoundation strings.
++Note that @option{-fconstant-cfstrings} is an alias for the target-specific
++@option{-mconstant-cfstrings} equivalent.
+ 
+ @item -fgnu-runtime
+ @opindex fgnu-runtime
+@@ -6647,7 +6649,7 @@ This warning is enabled by @option{-Wall}.
  @item -Wmissing-include-dirs @r{(C, C++, Objective-C, Objective-C++ and Fortran only)}
  @opindex Wmissing-include-dirs
  @opindex Wno-missing-include-dirs
@@ -187,7 +229,70 @@ LANG=C git diff --no-renames --src-prefix=a/src/ --dst-prefix=b/src/ \
  by default for C, C++, Objective-C and Objective-C++. For Fortran, it is partially
  enabled by default by warning for -I and -J, only.
  
-@@ -32078,6 +32078,15 @@ are enabled by default; routines in such libraries could suffer significant
+@@ -19216,7 +19218,7 @@ performance of the code.  Permissible values for this option are:
+ @samp{cortex-a75.cortex-a55}, @samp{cortex-a76.cortex-a55},
+ @samp{cortex-r82}, @samp{cortex-x1}, @samp{cortex-x2},
+ @samp{cortex-a510}, @samp{cortex-a710}, @samp{ampere1},
+-@samp{ampere1a}, @samp{native}.
++@samp{ampere1a}, @samp{cobalt-100} and @samp{native}.
+ 
+ The values @samp{cortex-a57.cortex-a53}, @samp{cortex-a72.cortex-a53},
+ @samp{cortex-a73.cortex-a35}, @samp{cortex-a73.cortex-a53},
+@@ -22804,10 +22806,21 @@ This is by default ON@.
+ @opindex gfull
+ Emit debugging information for all symbols and types.
+ 
++@opindex fconstant-cfstrings
++@item -fconstant-cfstrings
++The @option{-fconstant-cfstrings} is an alias for @option{-mconstant-cfstrings}.
++
++@opindex mconstant-cfstrings
++@item -mconstant-cfstrings
++When the NeXT runtime is being used (the default on these systems), override
++any @option{-fconstant-string-class} setting and cause @code{@@"@dots{}"}
++literals to be laid out as constant CoreFoundation strings.
++
++@opindex mmacosx-version-min
+ @item -mmacosx-version-min=@var{version}
+-The earliest version of MacOS X that this executable will run on
+-is @var{version}.  Typical values of @var{version} include @code{10.1},
+-@code{10.2}, and @code{10.3.9}.
++The earliest version of MacOS X that this executable will run on is
++@var{version}.  Typical values supported for @var{version} include @code{12},
++@code{10.12}, and @code{10.5.8}.
+ 
+ If the compiler was built to use the system's headers by default,
+ then the default for this option is the system version on which the
+@@ -24626,6 +24639,28 @@ global symbol: The data got table must be within +/-8EiB addressing space.
+ @end itemize
+ @end table
+ The default code model is @code{normal}.
++
++@item -mrelax
++@itemx -mno-relax
++Take (do not take) advantage of linker relaxations.  If
++@option{-mpass-mrelax-to-as} is enabled, this option is also passed to
++the assembler.  The default is determined during GCC build-time by
++detecting corresponding assembler support:
++@option{-mrelax} if the assembler supports both the @option{-mrelax}
++option and the conditional branch relaxation (it's required or the
++@code{.align} directives and conditional branch instructions in the
++assembly code outputted by GCC may be rejected by the assembler because
++of a relocation overflow), @option{-mno-relax} otherwise.
++
++@item -mpass-mrelax-to-as
++@itemx -mno-pass-mrelax-to-as
++Pass (do not pass) the @option{-mrelax} or @option{-mno-relax} option
++to the assembler.  The default is determined during GCC build-time by
++detecting corresponding assembler support:
++@option{-mpass-mrelax-to-as} if the assembler supports the
++@option{-mrelax} option, @option{-mno-pass-mrelax-to-as} otherwise.
++This option is mostly useful for debugging, or interoperation with
++assemblers different from the build-time one.
+ @end table
+ 
+ @node M32C Options
+@@ -32078,6 +32113,15 @@ are enabled by default; routines in such libraries could suffer significant
  loss of accuracy, typically through so-called ``catastrophic cancellation'',
  when this option is used to set the precision to less than extended precision.
  
@@ -203,7 +308,7 @@ LANG=C git diff --no-renames --src-prefix=a/src/ --dst-prefix=b/src/ \
  @item -mstackrealign
  @opindex mstackrealign
  Realign the stack at entry.  On the x86, the @option{-mstackrealign}
-@@ -33092,7 +33101,7 @@ on x86-64 processors in 64-bit environments.
+@@ -33092,7 +33136,7 @@ on x86-64 processors in 64-bit environments.
  Generate code for a 16-bit, 32-bit or 64-bit environment.
  The @option{-m32} option sets @code{int}, @code{long}, and pointer types
  to 32 bits, and

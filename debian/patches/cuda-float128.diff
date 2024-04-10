@@ -24,7 +24,7 @@
    abs(__float128 __x)
 --- a/src/libstdc++-v3/include/bits/stl_algobase.h
 +++ b/src/libstdc++-v3/include/bits/stl_algobase.h
-@@ -1043,7 +1043,7 @@ _GLIBCXX_END_NAMESPACE_CONTAINER
+@@ -1045,7 +1045,7 @@ _GLIBCXX_END_NAMESPACE_CONTAINER
    __size_to_integer(double __n) { return (long long)__n; }
    inline _GLIBCXX_CONSTEXPR long long
    __size_to_integer(long double __n) { return (long long)__n; }

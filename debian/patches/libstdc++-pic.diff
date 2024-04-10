@@ -2,7 +2,7 @@
 
 --- a/src/libstdc++-v3/src/Makefile.am
 +++ b/src/libstdc++-v3/src/Makefile.am
-@@ -373,10 +373,12 @@ if GLIBCXX_BUILD_DEBUG
+@@ -379,10 +379,12 @@ if GLIBCXX_BUILD_DEBUG
  STAMP_DEBUG = build-debug
  STAMP_INSTALL_DEBUG = install-debug
  CLEAN_DEBUG = debug
@@ -15,7 +15,7 @@
  endif
  
  # Build a debug variant.
-@@ -419,6 +421,7 @@ build-debug: stamp-debug $(debug_backtra
+@@ -425,6 +427,7 @@ build-debug: stamp-debug $(debug_backtra
  	  mv Makefile Makefile.tmp; \
  	  sed -e 's,all-local: all-once,all-local:,' \
  	      -e 's,install-data-local: install-data-once,install-data-local:,' \
@@ -23,7 +23,7 @@
  	      -e '/vpath/!s,src/c,src/debug/c,' \
  	  < Makefile.tmp > Makefile ; \
  	  rm -f Makefile.tmp ; \
-@@ -429,3 +432,8 @@ build-debug: stamp-debug $(debug_backtra
+@@ -435,3 +438,8 @@ build-debug: stamp-debug $(debug_backtra
  install-debug: build-debug
  	(cd ${debugdir} && $(MAKE) CXXFLAGS='$(DEBUG_FLAGS)' \
  	toolexeclibdir=$(glibcxx_toolexeclibdir)/debug install) ;
@@ -34,7 +34,7 @@
 +	$(INSTALL_DATA) .libs/libstdc++convenience.a $(DESTDIR)$(toolexeclibdir)/libstdc++_pic.a
 --- a/src/libstdc++-v3/src/Makefile.in
 +++ b/src/libstdc++-v3/src/Makefile.in
-@@ -668,6 +668,8 @@ CXXLINK = \
+@@ -675,6 +675,8 @@ CXXLINK = \
  @GLIBCXX_BUILD_DEBUG_TRUE@STAMP_INSTALL_DEBUG = install-debug
  @GLIBCXX_BUILD_DEBUG_FALSE@CLEAN_DEBUG = 
  @GLIBCXX_BUILD_DEBUG_TRUE@CLEAN_DEBUG = debug
@@ -43,7 +43,7 @@
  
  # Build a debug variant.
  # Take care to fix all possibly-relative paths.
-@@ -936,7 +938,7 @@ install-dvi: install-dvi-recursive
+@@ -943,7 +945,7 @@ install-dvi: install-dvi-recursive
  
  install-dvi-am:
  
@@ -52,7 +52,7 @@
  
  install-html: install-html-recursive
  
-@@ -986,11 +988,11 @@ uninstall-am: uninstall-toolexeclibLTLIB
+@@ -993,11 +995,11 @@ uninstall-am: uninstall-toolexeclibLTLIB
  	distclean-libtool distclean-tags dvi dvi-am html html-am info \
  	info-am install install-am install-data install-data-am \
  	install-data-local install-dvi install-dvi-am install-exec \
@@ -69,7 +69,7 @@
  	maintainer-clean-generic mostlyclean mostlyclean-compile \
  	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
  	tags tags-am uninstall uninstall-am \
-@@ -1139,6 +1141,7 @@ build-debug: stamp-debug $(debug_backtra
+@@ -1146,6 +1148,7 @@ build-debug: stamp-debug $(debug_backtra
  	  mv Makefile Makefile.tmp; \
  	  sed -e 's,all-local: all-once,all-local:,' \
  	      -e 's,install-data-local: install-data-once,install-data-local:,' \
@@ -77,7 +77,7 @@
  	      -e '/vpath/!s,src/c,src/debug/c,' \
  	  < Makefile.tmp > Makefile ; \
  	  rm -f Makefile.tmp ; \
-@@ -1150,6 +1153,11 @@ install-debug: build-debug
+@@ -1157,6 +1160,11 @@ install-debug: build-debug
  	(cd ${debugdir} && $(MAKE) CXXFLAGS='$(DEBUG_FLAGS)' \
  	toolexeclibdir=$(glibcxx_toolexeclibdir)/debug install) ;
  

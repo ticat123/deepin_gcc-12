@@ -492,6 +492,16 @@ else
   endif
 endif
 
+timet64_archs = armel armhf hppa m68k mips mipsel powerpc sh4
+no_timet64_distreleases = jessy stretch buster bullseye bookworm \
+	precise trusty xenial bionic focal jammy kinetic lunar mantic
+
+ifneq (,$(filter $(DEB_TARGET_ARCH), $(timet64_archs)))
+  ifeq (,$(filter $(distrelease),$(no_timet64_distreleases)))
+    with_timet64 = yes
+  endif
+endif
+
 # build using fsf or the ibm branch
 ifeq ($(distribution),Ubuntu)
   ifneq (,$(findstring $(DEB_TARGET_ARCH),ppc64el))
