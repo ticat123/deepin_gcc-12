@@ -119,7 +119,7 @@
      # Only define MULTIARCH_DIRNAME when multiarch is enabled,
      # or it would always introduce ${target} into the search path.
 -    MULTIARCH_DIRNAME = $(LA_MULTIARCH_TRIPLET)
-+    MULTIARCH_DIRNAME = $(call if_multiarch,loongarch64-linux-gnuf64)
++    MULTIARCH_DIRNAME = $(call if_multiarch,loongarch64-linux-gnu)
  endif
  
  # Don't define MULTILIB_OSDIRNAMES if multilib is disabled.
@@ -128,7 +128,7 @@
      MULTILIB_OSDIRNAMES = \
 -      mabi.lp64d=../lib64$\
 -      $(call if_multiarch,:loongarch64-linux-gnu)
-+      mabi.lp64d=../lib$(call if_multiarch,:loongarch64-linux-gnuf64)
++      mabi.lp64d=../lib$(call if_multiarch,:loongarch64-linux-gnu)
  
      MULTILIB_OSDIRNAMES += \
 -      mabi.lp64f=../lib64/f32$\

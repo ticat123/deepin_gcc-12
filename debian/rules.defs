@@ -742,6 +742,7 @@ with_jit = yes
 # FIXME: compiler bug
 # m68k: PR 95381
 jit_no_cpus	:= ia64
+jit_no_cpus	+= loong64
 
 ifneq (,$(filter $(DEB_TARGET_ARCH_CPU),$(jit_no_cpus)))
   with_jit := disabled for cpu $(DEB_TARGET_ARCH_CPU)
@@ -1035,6 +1036,7 @@ ifneq (,$(filter $(distrelease),precise))
 endif
 # Debian #969221
 go_no_archs += sh4
+go_no_archs += loong64
 
 ifneq ($(with_base_only),yes)
   ifneq ($(separate_lang),yes)
@@ -1450,7 +1452,7 @@ ifeq ($(distribution),Debian)
 		mips mipsel mips64 mips64el mipsn32 mipsn32el \
 		mipsr6 mipsr6el mips64r6 mips64r6el mipsn32r6 mipsn32r6el \
 		ppc64el s390x sparc sparc64 kfreebsd-amd64 kfreebsd-i386 \
-		hurd-i386 riscv64
+		hurd-i386 riscv64 loong64
   endif
   ifeq (,$(filter $(distrelease), jessie stretch))
     pie_archs += powerpc ppc64
