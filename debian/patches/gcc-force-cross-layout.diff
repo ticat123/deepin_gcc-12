@@ -30,7 +30,7 @@
    then
      CROSS="-DCROSS_DIRECTORY_STRUCTURE"
      ALL=all.cross
-@@ -7488,14 +7488,14 @@ AC_SUBST_FILE(language_hooks)
+@@ -7519,14 +7519,14 @@ AC_SUBST_FILE(language_hooks)
  
  # Echo link setup.
  if test x${build} = x${host} ; then

@@ -12,7 +12,7 @@
  # Check for thread headers.
 --- a/src/gcc/config.in
 +++ b/src/gcc/config.in
-@@ -2011,6 +2011,12 @@
+@@ -2029,6 +2029,12 @@
  #endif
  
  

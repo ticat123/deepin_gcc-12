@@ -492,6 +492,16 @@ else
   endif
 endif
 
+timet64_archs = armel armhf hppa m68k mips mipsel powerpc sh4
+no_timet64_distreleases = jessy stretch buster bullseye bookworm \
+	precise trusty xenial bionic focal jammy kinetic lunar mantic
+
+ifneq (,$(filter $(DEB_TARGET_ARCH), $(timet64_archs)))
+  ifeq (,$(filter $(distrelease),$(no_timet64_distreleases)))
+    with_timet64 = yes
+  endif
+endif
+
 # build using fsf or the ibm branch
 ifeq ($(distribution),Ubuntu)
   ifneq (,$(findstring $(DEB_TARGET_ARCH),ppc64el))
@@ -530,7 +540,7 @@ endif
 # gcc versions (fixincludes, ...)
 with_common_pkgs := yes
 # ... and some libraries, which do not change (libgcc1, libssp0).
-#with_common_libs := yes
+with_common_libs := yes
 # XXX: should with_common_libs be "yes" only if this is the default compiler
 # version on the targeted arch?
 
@@ -1294,9 +1304,9 @@ ifeq ($(with_m2),yes)
   ifeq ($(with_dev),yes)
     with_m2dev := yes
   endif
-  #ifeq ($(with_common_libs),yes)
+  ifeq ($(with_common_libs),yes)
     with_libgm2 := yes
-  #endif
+  endif
   enabled_languages += m2
 endif
 
