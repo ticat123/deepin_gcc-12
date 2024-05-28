@@ -1,3 +1,9 @@
+gcc-12 (12.3.0-17deepin1) unstable; urgency=medium
+
+  * Add pie support on Deepin and Uos.
+
+ -- liujianqqiang <liujianqiang@uninotech.com>  Tue, 28 May 2024 20:01:10 +0800
+
 gcc-12 (12.3.0-17) unstable; urgency=medium
 
   * Fix typo in distro_defaults spec.
