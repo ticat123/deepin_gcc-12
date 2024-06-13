@@ -94,6 +94,7 @@ CXX = $(notdir $(firstword $(wildcard \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-g++-8 \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-g++)))
 GDC = $(notdir $(firstword $(wildcard \
+	/usr/bin/$(DEB_HOST_GNU_TYPE)-gdc-13 \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-gdc-12 \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-gdc-11 \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-gdc-10 \
@@ -101,6 +102,7 @@ GDC = $(notdir $(firstword $(wildcard \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-gdc)))
 ifeq ($(with_ada),yes)
   GNAT = $(notdir $(firstword $(wildcard \
+	/usr/bin/$(DEB_HOST_GNU_TYPE)-gnat-13 \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-gnat-12 \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-gnat-11 \
 	/usr/bin/$(DEB_HOST_GNU_TYPE)-gnat-10 \
