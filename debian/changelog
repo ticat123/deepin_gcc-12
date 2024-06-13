@@ -1,3 +1,14 @@
+gcc-12 (12.3.0-17deepin2) unstable; urgency=medium
+
+  * Import LoongArch patches.
+  * Backport two patches to fix multilib.
+  * Rename loongarch64 as loong64 in debian/rules.defs.
+  * Regarding the backports, see:
+    * https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff;h=227b18f5d7616d6d34ac44836a8679de9b43c857
+    * https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff;h=6b1a2474f9e422ef746f7ea13014b288850bb68a
+
+ -- Mingcong Bai <baimingcong@uniontech.com>  Thu, 13 Jun 2024 11:14:18 +0800
+
 gcc-12 (12.3.0-17deepin1) unstable; urgency=medium
 
   * Add pie support on Deepin and Uos.
